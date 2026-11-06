@@ -1,0 +1,29 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies
+**/node_modules/
+
+# Build output
+**/dist/
+**/build/
+**/.expo/
+**/web-build/
+
+# Vercel
+.vercel/
+
+# Logs
+*.log
+
+# Operating system
+.DS_Store
+
+# Local database backups
+app-backend-backup-*.tar.gz
+app-database-backup-*.dump
+
+# Local source-file backups
+*.before-*
