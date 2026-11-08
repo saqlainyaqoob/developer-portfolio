@@ -44,7 +44,7 @@ export function Navbar({
           </span>
           <span className="font-display text-[15px] font-bold tracking-tight">
             {config.firstName}
-            <span className="text-primary">.dev</span>
+            <span className="text-primary">.yaqoob</span>
           </span>
         </a>
 

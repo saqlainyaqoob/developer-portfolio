@@ -16,7 +16,6 @@ export function AboutSection() {
           index="01"
           eyebrow="About"
           title="Engineering background, human focus"
-          description="A Computer Science graduate who cares as much about maintainable architecture and security as about how software feels for the people using it."
         />
 
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">

@@ -1,11 +1,10 @@
 import { Mail } from "lucide-react-native";
 import type { ReactNode } from "react";
-import { Alert, Linking, Text } from "react-native";
+import { Alert, Linking, Text, Pressable, View  } from "react-native";
 import * as Haptics from "expo-haptics";
 import { config } from "@/src/data/config";
 import { isSafeExternalUrl, openExternalUrl } from "@/src/lib/links";
 import { GithubIcon, LinkedinIcon } from "@/src/components/BrandIcons";
-import { Pressable, View } from "react-native";
 import { useTheme } from "@/src/theme/ThemeProvider";
 import { cn } from "@/src/lib/cn";
 

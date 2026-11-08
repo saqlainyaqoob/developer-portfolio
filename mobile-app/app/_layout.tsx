@@ -17,18 +17,64 @@ import {
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { Stack } from "expo-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Image, Text, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+
 import { ThemeProvider, useTheme } from "@/src/theme/ThemeProvider";
 
-/* Keep the native splash visible until fonts + theme preference are ready */
+const BRANDED_SCREEN_DURATION_MS = 1600;
+
+/**
+ * Keep the native splash visible until the app is ready.
+ */
 SplashScreen.preventAutoHideAsync().catch(() => {
-  /* splash already hidden — nothing to do */
+  // Native splash may already be prevented from hiding.
 });
+
+function BrandedLoadingScreen({ fontsLoaded }: { fontsLoaded: boolean }) {
+  return (
+    <View className="flex-1 items-center justify-center bg-white px-6">
+      <Image
+        source={require("../assets/splash-icon.png")}
+        className="mb-7 h-28 w-28"
+        resizeMode="contain"
+        accessibilityLabel="Developer Portfolio logo"
+      />
+
+      <Text
+        className="text-center text-[27px] tracking-[-0.8px] text-gray-900"
+        style={fontsLoaded ? { fontFamily: "SpaceGrotesk_700Bold" } : undefined}
+      >
+        Developer Portfolio
+      </Text>
+
+      <Text
+        className="mt-2.5 text-center text-[15px] text-gray-500"
+        style={fontsLoaded ? { fontFamily: "Inter_500Medium" } : undefined}
+      >
+        Building ideas into reality.
+      </Text>
+
+      <View className="mt-[42px] flex-row items-center gap-2">
+        <View className="h-[7px] w-[7px] rounded-full bg-indigo-500" />
+
+        <Text
+          className="text-xs text-gray-400"
+          style={fontsLoaded ? { fontFamily: "Inter_400Regular" } : undefined}
+        >
+          Loading your experience
+        </Text>
+      </View>
+    </View>
+  );
+}
 
 function RootNavigator() {
   const { tokens, loaded } = useTheme();
+
+  const [showBranding, setShowBranding] = useState(true);
 
   const [fontsLoaded, fontError] = useFonts({
     Inter_400Regular,
@@ -41,16 +87,31 @@ function RootNavigator() {
     JetBrainsMono_500Medium,
   });
 
+  const appReady = (fontsLoaded || fontError) && loaded;
+
   useEffect(() => {
-    if ((fontsLoaded || fontError) && loaded) {
-      SplashScreen.hideAsync().catch(() => {
-        /* noop */
-      });
-    }
-  }, [fontsLoaded, fontError, loaded]);
+    if (!appReady || !showBranding) return;
 
-  if (!fontsLoaded && !fontError) return null;
+    SplashScreen.hideAsync().catch(() => {
+      // Ignore if the native splash has already disappeared.
+    });
 
+    const timeoutId = setTimeout(() => {
+      setShowBranding(false);
+    }, BRANDED_SCREEN_DURATION_MS);
+
+    return () => clearTimeout(timeoutId);
+  }, [appReady, showBranding]);
+
+  // Keep native splash visible during initialization.
+  if (!appReady) return null;
+
+  // Show branded loading screen before opening the app.
+  if (showBranding) {
+    return <BrandedLoadingScreen fontsLoaded={fontsLoaded} />;
+  }
+
+  // Main application navigation.
   return (
     <Stack
       screenOptions={{
@@ -59,9 +120,21 @@ function RootNavigator() {
       }}
     >
       <Stack.Screen name="(tabs)" />
-      <Stack.Screen name="project/[id]" options={{ animation: "slide_from_right" }} />
-      <Stack.Screen name="experience" options={{ animation: "slide_from_right" }} />
-      <Stack.Screen name="settings" options={{ animation: "slide_from_right" }} />
+
+      <Stack.Screen
+        name="project/[id]"
+        options={{ animation: "slide_from_right" }}
+      />
+
+      <Stack.Screen
+        name="experience"
+        options={{ animation: "slide_from_right" }}
+      />
+
+      <Stack.Screen
+        name="settings"
+        options={{ animation: "slide_from_right" }}
+      />
     </Stack>
   );
 }

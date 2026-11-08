@@ -1,5 +1,5 @@
 import { useRouter } from "expo-router";
-import { ArrowRight, GraduationCap, Heart, Target } from "lucide-react-native";
+import { ArrowRight, GraduationCap, Target } from "lucide-react-native";
 import { Pressable, Text, View } from "react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
 import { profile } from "@/src/data/profile";

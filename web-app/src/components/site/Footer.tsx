@@ -67,11 +67,6 @@ export function Footer() {
             © {new Date().getFullYear()} {config.name} · Portfolio presented as
             an interactive web preview of a React Native + Expo application.
           </p>
-          <p className="mt-1.5 font-mono text-[10.5px] text-muted/60">
-            name · email · socials → edit in{" "}
-            <span className="text-primary">src/data/config.ts</span> and{" "}
-            <span className="text-primary">portfolio-mobile/src/data/config.ts</span>
-          </p>
         </div>
       </div>
     </footer>

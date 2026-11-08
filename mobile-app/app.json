@@ -7,18 +7,12 @@
     "icon": "./assets/icon.png",
     "scheme": "portfolio",
     "userInterfaceStyle": "automatic",
-    // // "newArchEnabled": true,
-    // "splash": {
-    //   "image": "./assets/icon.png",
-    //   "resizeMode": "contain",
-    //   "backgroundColor": "#0B0F19"
-    // },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.yourname.portfolio"
+      "bundleIdentifier": "com.saqlainyaqoob.portfolio"
     },
     "android": {
-      "package": "com.yourname.portfolio",
+      "package": "com.saqlainyaqoob.portfolio",
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#0B0F19"
@@ -30,25 +24,18 @@
       "output": "single"
     },
     "plugins": [
-  "expo-router",
-  [
-    "expo-splash-screen",
-    {
-      "image": "./assets/icon.png",
-      "imageWidth": 200,
-      "resizeMode": "contain",
-      "backgroundColor": "#0B0F19"
-    }
-  ],
-  "expo-font"
-],
+      "expo-router",
+      [
+        "expo-navigation-bar",
+        {
+          "enforceContrast": false
+        }
+      ],
+      "expo-font",
+      "expo-splash-screen"
+    ],
     "experiments": {
       "typedRoutes": true
-    },
-    "extra": {
-      "eas": {
-        "projectId": ""
-      }
     }
   }
 }

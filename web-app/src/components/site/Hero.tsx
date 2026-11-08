@@ -26,7 +26,7 @@ export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
       {/* Backdrop */}
-      <div className="absolute inset-0 grid-bg [mask-image:radial-gradient(ellipse_75%_65%_at_50%_35%,black_30%,transparent_75%)]" />
+      <div className="absolute inset-0 grid-bg mask-[radial-gradient(ellipse_75%_65%_at_50%_35%,black_30%,transparent_75%)]" />
       <div className="absolute -top-44 left-1/2 h-[460px] w-[760px] -translate-x-1/2 rounded-full bg-primary/20 blur-[140px]" />
       <div className="absolute right-[-140px] top-1/3 h-[400px] w-[400px] rounded-full bg-secondary/15 blur-[130px]" />
 

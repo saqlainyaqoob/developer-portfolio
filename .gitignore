@@ -27,3 +27,16 @@ app-database-backup-*.dump
 
 # Local source-file backups
 *.before-*
+*.keystore
+# Android release artifacts (keep APKs out of Git)
+*.apk
+*.aab
+
+# Android generated native build files
+**/.cxx/
+**/.externalNativeBuild/
+**/local.properties
+**/.idea/
+
+# Local backup files
+*.backup

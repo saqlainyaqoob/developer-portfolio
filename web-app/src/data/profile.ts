@@ -12,10 +12,10 @@ export const profile = {
   headline: "Full-Stack Developer · Software Engineer · React Native Developer",
   /** Short professional introduction */
   intro:
-    "I am a Computer Science graduate and Full-Stack Developer passionate about building scalable, secure, and user-friendly software applications.",
+    "I am a Computer Science graduate and Full-Stack Mobile and web app Developer passionate about building scalable, secure, and user-friendly software applications.",
   /** Extended biography for the About screen */
   bio: [
-    "I am a Computer Science graduate and Full-Stack Developer passionate about building scalable, secure, and user-friendly software applications.",
+    "I am a Computer Science graduate and Full-Stack Mobile and Web App Developer passionate about building scalable, secure, and user-friendly software applications.",
     "My development experience focuses on modern frontend technologies, backend architecture, RESTful and GraphQL APIs, relational databases, authentication, application security, and containerized deployments.",
     "I enjoy transforming ideas into practical software products, developing maintainable application architectures, solving complex technical problems, and continuously exploring modern technologies.",
   ],

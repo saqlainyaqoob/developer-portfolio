@@ -249,8 +249,7 @@ export function ContactScreen() {
                 </PButton>
 
                 <p className="text-center text-[10px] leading-relaxed text-muted/70">
-                  No data is transmitted — the message is composed locally and
-                  handed to your email app.
+                  Your message will be securely submitted to my portfolio backend.
                 </p>
               </PCard>
             </form>

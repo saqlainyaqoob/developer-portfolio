@@ -3,11 +3,13 @@ import { LinearGradient } from "expo-linear-gradient";
 import { ChevronLeft } from "lucide-react-native";
 import type { ReactNode } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import {
+  SafeAreaView,
+  useSafeAreaInsets,
+} from "react-native-safe-area-context";
 import { config } from "@/src/data/config";
 import { useTheme } from "@/src/theme/ThemeProvider";
 import { cn } from "@/src/lib/cn";
-
 /* ------------------------------------------------------------------ */
 /*  Screen                                                             */
 /* ------------------------------------------------------------------ */
@@ -24,13 +26,26 @@ export function Screen({
   /** false renders children directly (for FlatList-based screens) */
   scroll?: boolean;
 }) {
+  const insets = useSafeAreaInsets();
+
+  // Keep scrollable content above the Android system navigation area.
+  const bottomPadding = Math.max(insets.bottom - 20, 0);
+
   return (
-    <SafeAreaView style={{ flex: 1 }} className="flex-1 bg-background" edges={["top"]}>
+    <SafeAreaView
+      style={{ flex: 1 }}
+      className="flex-1 bg-background"
+      edges={["top"]}
+    >
       {header}
+
       {scroll ? (
         <ScrollView
           className="flex-1"
-          contentContainerClassName={cn(padded ? "px-5" : "px-0", "pb-10")}
+          contentContainerClassName={cn(padded ? "px-5" : "px-0")}
+          contentContainerStyle={{
+            paddingBottom: bottomPadding,
+          }}
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
         >
@@ -72,8 +87,12 @@ export function ScreenHeader({
         </Pressable>
       ) : null}
       <View className="flex-1">
-        <Text className="font-display-semibold text-[16px] text-foreground">{title}</Text>
-        {subtitle ? <Text className="mt-0.5 text-[11.5px] text-muted">{subtitle}</Text> : null}
+        <Text className="font-display-semibold text-[16px] text-foreground">
+          {title}
+        </Text>
+        {subtitle ? (
+          <Text className="mt-0.5 text-[11.5px] text-muted">{subtitle}</Text>
+        ) : null}
       </View>
       {action}
     </View>
@@ -83,9 +102,20 @@ export function ScreenHeader({
 /* ------------------------------------------------------------------ */
 /*  SectionLabel                                                       */
 /* ------------------------------------------------------------------ */
-export function SectionLabel({ label, className }: { label: string; className?: string }) {
+export function SectionLabel({
+  label,
+  className,
+}: {
+  label: string;
+  className?: string;
+}) {
   return (
-    <Text className={cn("font-mono-medium text-[10px] uppercase tracking-[0.18em] text-muted", className)}>
+    <Text
+      className={cn(
+        "font-mono-medium text-[10px] uppercase tracking-[0.18em] text-muted",
+        className,
+      )}
+    >
       {label}
     </Text>
   );
@@ -111,13 +141,22 @@ export function Card({
         accessibilityRole="button"
         accessibilityLabel={accessibilityLabel}
         onPress={onPress}
-        className={cn("rounded-2xl border border-line bg-surface p-4 active:opacity-80", className)}
+        className={cn(
+          "rounded-2xl border border-line bg-surface p-4 active:opacity-80",
+          className,
+        )}
       >
         {children}
       </Pressable>
     );
   }
-  return <View className={cn("rounded-2xl border border-line bg-surface p-4", className)}>{children}</View>;
+  return (
+    <View
+      className={cn("rounded-2xl border border-line bg-surface p-4", className)}
+    >
+      {children}
+    </View>
+  );
 }
 
 /* ------------------------------------------------------------------ */
@@ -129,7 +168,10 @@ export function Tag({ label, color }: { label: string; color?: string }) {
       className="rounded-full border border-line bg-elevated px-2.5 py-1"
       style={color ? { borderColor: `${color}66` } : undefined}
     >
-      <Text className="text-[11px] font-sans-medium text-muted" style={color ? { color } : undefined}>
+      <Text
+        className="text-[11px] font-sans-medium text-muted"
+        style={color ? { color } : undefined}
+      >
         {label}
       </Text>
     </View>
@@ -204,7 +246,10 @@ export function Monogram({ size = 48 }: { size?: number }) {
         colors={["#6366F1", "#8B5CF6"]}
         style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
       >
-        <Text className="font-display-bold text-white" style={{ fontSize: size * 0.34 }}>
+        <Text
+          className="font-display-bold text-white"
+          style={{ fontSize: size * 0.34 }}
+        >
           {config.initials}
         </Text>
       </LinearGradient>
@@ -215,12 +260,24 @@ export function Monogram({ size = 48 }: { size?: number }) {
 /* ------------------------------------------------------------------ */
 /*  EmptyState                                                         */
 /* ------------------------------------------------------------------ */
-export function EmptyState({ icon, title, message }: { icon: ReactNode; title: string; message: string }) {
+export function EmptyState({
+  icon,
+  title,
+  message,
+}: {
+  icon: ReactNode;
+  title: string;
+  message: string;
+}) {
   return (
     <View className="items-center gap-2 rounded-2xl border border-dashed border-line px-6 py-12">
       <View className="mb-1">{icon}</View>
-      <Text className="text-[14px] font-sans-semibold text-foreground">{title}</Text>
-      <Text className="max-w-[240px] text-center text-[12px] leading-relaxed text-muted">{message}</Text>
+      <Text className="text-[14px] font-sans-semibold text-foreground">
+        {title}
+      </Text>
+      <Text className="max-w-[240px] text-center text-[12px] leading-relaxed text-muted">
+        {message}
+      </Text>
     </View>
   );
 }

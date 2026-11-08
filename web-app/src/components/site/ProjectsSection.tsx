@@ -201,17 +201,6 @@ export function ProjectsSection() {
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
-
-        <Reveal className="mt-8">
-          <p className="text-center text-[12px] leading-relaxed text-muted/80">
-            Repository and demo URLs are intentionally unset — add them once in{" "}
-            <span className="font-mono text-[11px] text-primary">
-              src/data/projects.ts
-            </span>{" "}
-            and both the website and the mobile app update. Placeholder links
-            are never presented as live endpoints.
-          </p>
-        </Reveal>
       </div>
     </section>
   );

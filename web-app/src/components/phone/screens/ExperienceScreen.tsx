@@ -73,7 +73,7 @@ export function ExperienceScreen() {
                 <ul className="mt-2.5 space-y-1.5">
                   {item.points.map((point) => (
                     <li key={point.slice(0, 24)} className="flex gap-2">
-                      <span className="mt-[6px] h-1 w-1 shrink-0 rounded-full bg-muted" />
+                      <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-muted" />
                       <span className="text-[11.5px] leading-snug text-muted">
                         {point}
                       </span>
@@ -90,11 +90,6 @@ export function ExperienceScreen() {
             </article>
           ))}
         </div>
-
-        <p className="mt-6 text-center text-[10.5px] leading-relaxed text-muted/80">
-          Professional experience and personal project work are kept clearly
-          separate — just like on a well-structured résumé.
-        </p>
       </div>
     </PPage>
   );

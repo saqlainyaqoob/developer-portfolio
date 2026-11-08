@@ -20,11 +20,11 @@ export default function TabsLayout() {
           borderTopWidth: 1,
 
           // Account for Android's bottom system navigation area
-          height: 64 + insets.bottom,
+          height: 58 + insets.bottom,
           paddingBottom: Math.max(insets.bottom, 8),
-          paddingTop: 6,
+          paddingTop: 1,
         },
-
+      
         tabBarLabelStyle: {
           fontSize: 11,
           fontFamily: "Inter_500Medium",

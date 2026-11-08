@@ -151,14 +151,10 @@ export default function ProjectDetailScreen() {
 
       {/* Links */}
       <SectionLabel label="Links" className="mt-6" />
-      <View className="mt-2.5 mb-8 flex-row gap-2.5">
+      <View className="mt-2.5 mb-14 flex-row gap-2.5">
         <LinkButton kind="github" url={project.links.github} />
         <LinkButton kind="demo" url={project.links.demo} />
       </View>
-      {/* <Text className="mt-2.5 text-center text-[10.5px] leading-relaxed text-muted">
-        Repository and demo URLs are configured in src/data/projects.ts —
-        placeholders are never presented as live links.
-      </Text> */}
     </Screen>
   );
 }

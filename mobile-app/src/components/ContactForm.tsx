@@ -237,10 +237,9 @@ export function ContactForm() {
   const [submitError, setSubmitError] = useState("");
 
   const {
-    control,
-    handleSubmit,
-    reset,
-    formState: { errors },
+  control,
+  handleSubmit,
+  reset,
   } = useForm<FormValues>({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -325,7 +324,7 @@ export function ContactForm() {
 
         <Text className="mx-3 mt-1.5 text-center text-[12px] leading-relaxed text-muted">
           Thank you for reaching out. Your message has been saved successfully.
-          I'll get back to you as soon as possible.
+          I&apos;ll get back to you as soon as possible.
         </Text>
 
         <View className="mt-4 w-full gap-2 px-2">
@@ -359,7 +358,7 @@ export function ContactForm() {
       behavior={Platform.OS === "ios" ? "padding" : undefined}
       keyboardVerticalOffset={12}
     >
-      <Card>
+      <Card className="mb-5">
         <SectionLabel label="Message" className="mb-3" />
 
         <View className="gap-3.5">

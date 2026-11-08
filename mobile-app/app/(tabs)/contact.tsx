@@ -24,7 +24,7 @@ export default function ContactScreen() {
       header={<ScreenHeader title="Contact" subtitle="Let's build something together" />}
     >
       <Text className="mt-4 text-[12.5px] leading-relaxed text-muted">
-        I'm open to full-time roles, freelance projects, and interesting
+        I&apos;m open to full-time roles, freelance projects, and interesting
         collaborations. The fastest way to reach me is email — or use the form
         below.
       </Text>

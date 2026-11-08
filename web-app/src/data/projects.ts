@@ -82,7 +82,10 @@ export const projects: Project[] = [
     ],
     icon: "cart",
     accent: "#8B5CF6",
-    links: {},
+    links: {
+      github: "https://github.com/saqlainyaqoob/commerce-dashboard-web-app",
+      demo: "https://commerce-dashboard-web-app-frontend.vercel.app",
+    },
   },
   {
     id: "consultflow",
