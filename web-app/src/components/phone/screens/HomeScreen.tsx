@@ -21,7 +21,7 @@ import {
   PToast,
   ProjectGlyph,
 } from "../ui";
-import { config, } from "@/data/config";
+import { config } from "@/data/config";
 import { profile } from "@/data/profile";
 import { projects } from "@/data/projects";
 import { skillCategories } from "@/data/skills";
@@ -88,19 +88,22 @@ export function HomeScreen() {
         </div>
 
         {/* Intro */}
-        <p className="text-[13px] leading-relaxed text-muted">{profile.intro}</p>
+        <p className="text-[13px] leading-relaxed text-muted">
+          {profile.intro}
+        </p>
 
         {/* CTAs */}
         <div className="flex gap-2.5">
           <PButton
-            className="flex-1"
+            className="flex-1 whitespace-nowrap"
             icon={<FolderGit2 size={15} />}
             onClick={() => navigate("projects")}
           >
             View My Projects
           </PButton>
+
           <PButton
-            className="flex-1"
+            className="flex-1 whitespace-nowrap"
             variant="secondary"
             icon={<Mail size={15} />}
             onClick={() => navigate("contact")}
@@ -187,7 +190,11 @@ export function HomeScreen() {
         <div className="flex gap-2.5">
           {[
             { icon: GithubIcon, url: config.socials.github, label: "GitHub" },
-            { icon: LinkedinIcon, url: config.socials.linkedin, label: "LinkedIn" },
+            {
+              icon: LinkedinIcon,
+              url: config.socials.linkedin,
+              label: "LinkedIn",
+            },
           ].map(({ icon: Icon, url, label }) => (
             <button
               key={label}
