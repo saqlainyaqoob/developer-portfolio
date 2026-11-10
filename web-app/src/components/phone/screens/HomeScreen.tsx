@@ -99,7 +99,7 @@ export function HomeScreen() {
             icon={<FolderGit2 size={15} />}
             onClick={() => navigate("projects")}
           >
-            View My Projects
+            View Projects
           </PButton>
 
           <PButton
