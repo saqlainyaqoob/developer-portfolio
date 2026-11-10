@@ -59,7 +59,7 @@ export const projects: Project[] = [
       "Dockerized development environment with deployment to Vercel.",
     ],
     icon: "cart",
-    accent: "#8B5CF6",
+    accent: "#6366F1",
     links: {
       github: "https://github.com/saqlainyaqoob/commerce-dashboard-web-app",
       demo: "https://commerce-dashboard-web-app-frontend.vercel.app",
@@ -119,7 +119,7 @@ export const projects: Project[] = [
   },
   {
     id: "task-manager-api",
-    name: "Task Manager API",
+    name: "Task Manager",
     category: "Backend / API",
     tagline: "RESTful task management service",
     description:
@@ -152,7 +152,7 @@ export const projects: Project[] = [
       "Postman collection documenting every endpoint for reproducible testing.",
     ],
     icon: "server",
-    accent: "#22D3EE",
+    accent: "#6366F1",
     links: {},
   },
 ];

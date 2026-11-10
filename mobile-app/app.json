@@ -1,3 +1,46 @@
+// {
+//   "expo": {
+//     "name": "Developer Portfolio",
+//     "slug": "developer-portfolio",
+//     "version": "1.0.0",
+//     "orientation": "portrait",
+//     "icon": "./assets/icon.png",
+//     "scheme": "portfolio",
+//     "userInterfaceStyle": "automatic",
+//     "ios": {
+//       "supportsTablet": true,
+//       "bundleIdentifier": "com.saqlainyaqoob.portfolio"
+//     },
+//     "android": {
+//       "package": "com.saqlainyaqoob.portfolio",
+//       "adaptiveIcon": {
+//         "foregroundImage": "./assets/icon.png",
+//         "backgroundColor": "#0B0F19"
+//       }
+//     },
+//     "web": {
+//       "bundler": "metro",
+//       "favicon": "./assets/icon.png",
+//       "output": "single"
+//     },
+//     "plugins": [
+//       "expo-router",
+//       [
+//         "expo-navigation-bar",
+//         {
+//           "enforceContrast": false
+//         }
+//       ],
+//       "expo-font",
+//       "expo-splash-screen"
+//     ],
+//     "experiments": {
+//       "typedRoutes": true
+//     }
+//   }
+// }
+
+
 {
   "expo": {
     "name": "Developer Portfolio",
@@ -32,10 +75,19 @@
         }
       ],
       "expo-font",
-      "expo-splash-screen"
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#0B0F19"
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true
     }
   }
 }
+
