@@ -226,7 +226,7 @@ The application provides a dedicated mobile experience with native navigation, r
 |---|---|
 | React 19 | Component-based UI |
 | React Native 0.81 | Native mobile development |
-| Expo SDK 54 | Mobile development platform |
+| Expo SDK 58 | Mobile development platform |
 | Expo Router 6 | File-based navigation |
 | TypeScript | Static typing |
 | NativeWind 4 | Tailwind-style React Native styling |
