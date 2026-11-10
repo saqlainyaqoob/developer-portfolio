@@ -487,9 +487,7 @@ developer-portfolio/
 ├── app-backend/
 │   ├── db/
 │   │   └── migrations/
-│   │       ├── 000_create_contact_messages.sql
-│   │       ├── 001_add_email_retry_fields.sql
-│   │       └── 002_add_notification_worker_eligibility.sql
+│   │       └──  000_create_contact_messages.sql
 │   │
 │   ├── src/
 │   │   ├── config/
