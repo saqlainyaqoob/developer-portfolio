@@ -1,15 +1,16 @@
 import express from "express";
 import cors from "cors";
-import * as helmetModule from "helmet";
-import * as rateLimitModule from "express-rate-limit";
+import { createRequire } from "node:module";
+import type { RequestHandler } from "express";
 import notFoundHandler from "./middleware/notFound.middleware.js";
 import errorHandler from "./middleware/error.middleware.js";
 
 import contactRoutes from "./routes/contact.routes.js";
 import { env } from "./config/env.js";
 
-const helmet = helmetModule.default;
-const rateLimit = rateLimitModule.default;
+const require = createRequire(import.meta.url);
+const helmet = require("helmet") as () => RequestHandler;
+const rateLimit = require("express-rate-limit") as (options: object) => RequestHandler;
 
 const app = express();
 
