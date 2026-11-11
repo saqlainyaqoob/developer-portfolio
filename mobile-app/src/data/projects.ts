@@ -153,7 +153,10 @@ export const projects: Project[] = [
     ],
     icon: "server",
     accent: "#6366F1",
-    links: {},
+    links: {
+      github: "https://github.com/saqlainyaqoob/task-manager",
+      demo: "https://task-manager-liard-psi-14.vercel.app/",
+    },
   },
 ];
 
